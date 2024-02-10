@@ -1,0 +1,90 @@
+DEMO EXPLANATION
+• This demonstration gives the scenario of a utopic world where when you are hungry, you can just
+show a picture of what you want to eat to your webcam. After that, the drone in your garage will
+go to the restaurant that serves the food you ordered, land to pick up the food and then head back
+home in your garage and safely land with your order.
+• For this purposes, this demo starts with the user at the computer showing to the webcam 3 different
+items (broccoli, pizza or donuts) based on what the user wants to eat. Once any of these 3 items are
+successfully identified, the webcam video stops and the drone, which is to be placed in front of the
+home base box, takes off and goes to the box corresponding to the item picked. The drone then lands for
+a couple of seconds, takes off again, goes back to the home base and finally lands "with your order".
+
+
+SETTING UP THE DEMO
+• Procure 4 cardboard boxes or equivalents which are big enough to have a 10cm x 10cm print on
+one of their sides.
+• Go online to find an ARUCO marker generator (https://chev.me//arucogen) and download the required
+markers.
+• Ensure before downloading the ARUCO markers that they are of type "5x5_100". Proceed to print
+the ARUCO markers with the identification numbers of 1, 2, 3 and 4. You can enlarge them if needed,
+but ensure the dictionary type and IDs stay the same.
+• In the script, 4 represents the home base, 3 represents donuts, 2 represents pizza
+and 1 represents broccoli.
+• If you want to use other items, consult the file "coco.names" which contains all the items that can
+be identified by the software. Then go into the python script and see lines from 150-155. If you want another item
+as opposed to the existing ones, change the classID in an if statement to the ID of the class you identified
+(this is the line at which the object appears in the "coco.names" file - 1).
+• After printing the markers, stick each one of them on an individual box and ensure they are not put
+an angle.
+
+
+TO DO BEFORE
+• There are 4 bases which are represented by boxes with fiducial markers (ARUCO) glued on
+one of their sides. Each one of the fiducial markers is unique and their boxes are identified
+by their specific name.
+• Place the boxes such that the side with the ARUCO marker of the ’Home’ box (id 4) is facing
+directly the side with ARUCO markers of the other three boxes (id 1, 2, 3).
+• Ensure the distance between the home and the other boxes is around 4-5 metres and that the
+other three boxes are in the vicinity of one another (such that the Tello camera is able
+to pick up all three markers after taking off from the home base). The markers should be spread at
+about half to one meter from one another and a slight variation in height is acceptable. I recommend
+trying various configurations of box placements and test them by running the simulation and checking
+if the Tello encounters any issues or not.
+• Place a new fully charged battery inside the designated Tello and press the power button
+fixed on the side once.
+• Place the Tello close in front of the ’Home’ ARUCO with its camera facing the other three
+boxes.
+• At your discretion, have three images of a broccoli, a pizza and a donut respectively. If possible,
+you can present actual broccolis, donuts or pizza to the webcam.
+• The person running the code should then start the ’tello-demos’ directory in PyCharm and
+open the ’package-sim.py’ file within the ’package-sim’ folder.
+• The person should then connect to the Wi-Fi named ’TELLO-F0B001’.
+
+
+TO DO WHILE
+• Once everything is in place, click within the aforementioned python script once and then
+press the green triangle at the right side of the top bar to run the code. Before running the
+code, ensure that the drop-down menu placed to the left of the green triangle has the value
+of ’Current File’.
+• Once the code started, a camera feed of your webcam will be presented to you. Based on
+which box you desire the drone to follow, show one of the three images or objects to your webcam.
+• Once it successfully identified the object, the webcam feed will stop and the drone will take-
+off, giving its camera feed back to the user. Within this feed, each of the markers will be
+highlighted with their IDs shown.
+• The drone will then follow the ID corresponding to the item selected and settle close to its
+proximity. Once it has reached a given acceptable error, it will rotate 180 degrees, land, take-off and
+follow the marker corresponding to the home base. Similarly, after reaching a predefined error,
+the drone will again rotate 180 degrees and then land at the home base. It is thus prerogative to
+ensure the Tello can see the markers it is supposed to follow after its take-off.
+• If anything unforeseen happens, stop the code by pressing the red rectangle at the right side of
+the top bar to terminate the code. The Tello might need to be then forcefully rebooted by powering
+it off and on in case there were communication errors.
+• After the drone has landed back at the home base, the code can be instantly rerun for as
+many times as needed.
+
+
+TO DO AFTER
+• Once the drone has successfully landed and the script stopped running, approach the Tello
+and press the power button on its edge once to power it off.
+• Remove the battery and let it cool down before recharging it.
+• Remove the boxes from the area so they do not affect future activities.
+
+
+KEEP IN MIND
+• This demo is prone to fail under communication error due to either poor Wi-fi connection, poor
+device compatibility or Wi-Fi interference (the demo was tested on a Windows device, you might find
+that a Linux device does not encounter these problems).
+• This is due to the high computational demands that come with the task and the failure usually consists
+of the video footage from the drone freezing and the Tello looping through its land position command (the
+code gives commands to the Tello in the form of speeds in all directions). The drone might hence be seen to
+drift. If this happens, immediately stop running the code and wait for the drone to settle.

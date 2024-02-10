@@ -1,0 +1,102 @@
+DEMO EXPLANATION
+• This demonstration showcases the capabilities of the Tello to identify and track faces and
+gestures.
+• Once the activity has started, the Tello will follow the biggest face it can see (equivalent
+to the closest face to its camera) to try to keep a constant distance to it and try to put the
+centre of the identified face within the centre of the image it provides.
+• Gesture controls can further be used to send simple commands to the drone with further explanations
+below.
+
+
+TO DO BEFORE
+• Pick the marked single Tello EDU and place a fully charged new battery inside it.
+• Start the Tello EDU by pressing once on the button found on the side of the drone.
+
+
+TO DO BEFORE (person leading the engagement activity)
+• Place yourself inside the nets and 3-4 metres in front of the Tello EDU (if you are too close, the
+Tello might pick up non-existing gestures when ascending). It might also be beneficial to position yourself
+out of the camera view of the drone before the Tello reaches its initial altitude.
+• Ensure the Tello EDU camera is directly facing you.
+• Ensure you wear safety glasses.
+• Ensure there are no other people in the vicinity (the Tello EDU might pick up on their faces
+and start following them in the case it does not identify your face). The gesture identification
+happens to be extremely potent hence it can easily pick up on the gestures of the audience behind,
+hence ideally place yourself with an empty background behind you.
+
+
+TO DO BEFORE (person running the code)
+• Place yourself outside the nets at the designated computer.
+• Open the ’tello-demos’ directory using PyCharm.
+• In this directory, open the ’face-tracking-with-gestures.py’ file within the ’face-tracking’ folder.
+• Connect to the Wi-Fi named ’TELLO-F0B001’.
+• Wait for the person leading the engagement activity to finish all their ’TO DO BEFORE’
+tasks.
+
+
+TO DO WHILE (person running the code)
+• Once the person leading the activity has completed their first set of tasks, while having
+the ’face-tracking-with-gestures.py’ file opened, run the code by pressing the green triangle set in
+the right side of the top bar. Remember to click anywhere within the python script before
+running the code to ensure the proper file is running. Before running the code, ensure that
+the drop-down menu placed to the left of the green triangle has the value of ’Current File’.
+• The Tello EDU will then take-off, and the camera footage of the drone will be fed back to
+the person at the computer. Within the camera feed, each identified face will be shown by a
+red rectangle with a green dot representing the centre of each face.
+• Closely monitor the camera feed and in case the Tello seems to malfunction (likely by identi-
+fying and following a different face than the person’s leading the engagement activity), click
+on the red rectangle from the right side of the top bar to terminate the code and advice the person
+leading the activity to step away from the drone.
+• Once the Tello EDU has landed, stop the code by pressing the red rectangle at the right side
+of the top bar. To run the code again, follow the same exact steps.
+
+
+TO DO WHILE (person leading the engagement activity)
+• Once the person running the code started the script, the drone will be taking off and climbing
+to a predefined altitude (to make it easier to pick up faces).
+• Once that altitude has been reached, the Tello EDU will identify your face and start following
+it by ensuring the centre of your face is always at the centre of the video footage and that the
+area of your face is within a predefined limit.
+• Avoid any fast or jerky movements which might make the Tello unable to identify your face
+or result in drone oscillations. Move slowly and always wait for the Tello to settle to a close
+to zero velocity after each movement.
+• There are 4 possible gestures that the Tello EDU responds to with each of them described in
+detail below.
+• First one is raising your left hand (the wrist of your left hand has to be above your nose base
+and close to your face so it can be picked up by the camera) which makes the drone go right
+(your left). Second one is raising your right hand (identical process to the raising your left
+hand) which makes the Tello go left (your right). Ensure that when raising one hand, the
+other one is below your nose base.
+• Third gesture is raising both hands (defined as raising both wrists above your nose base and
+close to your face) which makes the drone flip backwards. This is only possible if the battery
+of the drone is higher than 50%. After flipping, the drone will take a couple of seconds until
+it can follow you again. Do not do it repeatedly as it puts a high strain on the drone and may
+affect communications. If the flip command is given when the drone is below 50%, then the
+Tello will not respond and will further need to be manually rebooted by powering it off and on.
+• Fourth gesture is to be used only at the very end of the engagement activity as it makes the
+drone land and ends the scripts. To perform it, have your wrists below the base of your nose
+and cross you arms in an X such that the left wrist is right to your nose base and the right
+wrist is left to your nose base.
+• If any gesture is not picked up by the Tello, try performing it closer to your face.
+• Avoid performing any of these gesture by mistake!
+• When the Tello is executing a gesture command, it stops tracking your face, hence ensure
+that after completing its tasks, the drone’s camera is still able to pick up your face.
+
+
+TO DO AFTER
+• Once the drone has successfully landed and the script stopped running, approach the Tello
+and press the power button on its edge once.
+• Remove the battery and let it cool down before recharging it and place the Tello in a secure
+location.
+
+
+KEEP IN MIND
+• This demo is prone to fail under communication error due to either poor Wi-fi connection, poor
+device compatibility or Wi-Fi interference (the demo was tested on a Windows device, you might find
+that a Linux device does not encounter these problems / this was also tested within the BRL flight
+arena with strong Wi-Fi interference from the multiple existing networks within the lab).
+• This is due to the high computational demands that come with the task and the failure usually consists
+of the video footage from the drone freezing and the Tello looping through its last position command (the
+code gives commands to the Tello in the form of speeds in all directions at each timestep). The drone
+might hence be seen to drift and pose a risk to the participants. If this happens, immediately stop running
+the code and wait for the Tello to settle and land before interfering.

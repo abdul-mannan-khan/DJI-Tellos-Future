@@ -1,0 +1,43 @@
+TO DO BEFORE
+• Place the 8 mission pads in the formation presented in the attached pdf file within the 'swarm'
+folder. The ID of each mission pad is written on itself. The positive direction X of a mission
+pad is given by the direction in which the rocket on the pad (top right) is pointing towards.
+• The distance between pad 1 and 2, 2 and 3, 3 and 4, and 4 and 1 should be kept constant
+at 1 metre. Pads 5, 6, 7, 8 are to be placed 1 metre away from the closest edge of the inner
+rectangle created by pads 1, 2, 3 and 4. They are also to be placed in the middle of these
+edges. Pad 5 will hence be 1 metre forwards to pad 1 and 2 and half a metre to the right of
+pad 1 and half a metre to the left of pad 2. A similar pattern is seen in the placement of pads
+6, 7 and 8, creating a diamond-like shape. Ensure the distance of 1 metre and a half a metre is
+closely followed.
+• Insert a fully charged battery in all 4 of the unmarked Tello EDUs and then start each one of
+them by pressing the power button on their edges once. Avoid holding the button down for
+a long period of time (around 5 seconds) as this disconnects the drone from the router and it
+needs to be manually connected back (refer to 'connecting-swarm-to-router' file).
+• Place the 4 drones on pads 1, 2, 3 and 4 respectively with each of them facing towards the
+positive X direction.
+• The person running the code should then start the ’tello-demos’ directory in PyCharm and
+open the ’swarm-dance.py’ file within the ’swarming’ folder.
+• Ensure the Tello EDUs are already in AP mode (consult "-connect-swarm-to-router") and, if wanted,
+follow the guidelines presented in line 143 of "swarm-dance" to design your own choreography.
+• The person should then connect to the Wi-Fi of the router used.
+
+
+TO DO WHILE
+• Once everything is in place, click within the aforementioned python script once and then
+press the green triangle at the right side of the top bar to run the code. Before running the
+code, ensure that the drop-down menu placed to the left of the green triangle has the value
+of ’Current File’.
+• Once the code has started, the drones will execute the built-in choreography.
+• If anything unforeseen happens, manually stop the drones by clicking the red rectangle at
+the right of the top bar.
+• Additional information on building a unique choreography is presented in the python script
+in the form of commented lines.
+• If not all drones are responding, best approach is to manually turn them on and off again.
+
+
+TO DO AFTER
+• Once all the drones have landed, turn each one of them off by pressing their power button
+on the side once.
+• Remove the batteries and wait for them cool down before recharging.
+• Remove the mission pads from the area to clear the space and place the drones in a secure
+location.

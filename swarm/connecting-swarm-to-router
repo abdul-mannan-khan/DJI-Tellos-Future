@@ -1,0 +1,32 @@
+CONNECTING SWARM TO ROUTER
+• Open the tello-demos directory, and then enter the swarm folder and open the python file
+'set-ap-mode.py'. Follow the instructions in the file and put the SSID and password of the router
+in the last line.
+• Sequentially, connect via Wi-Fi to each individual Tello drone and then run the 'set-ap-mode.py' script by pressing
+the green triangle at the right side of the top bar. If a message saying 'the drone will reboot' appears,
+then the drone was successfully connected to the router and entered AP mode.
+• To disconnect a drone from the router or make it leave AP mode, hold the power button for more than 5
+seconds. If the drone successfully disconnected, then, after powering the drone again, you should be able
+to see its Wi-Fi network (a drone in AP mode does not emit its own Wi-Fi).
+• After connecting all the needed drones to the router, go into your net browser and type the IP address
+of the router in the search bar. This will then send you to the router page.
+• The next step varies with the company that made the router, but basically you need to find a section called
+the DCHP server (this dynamically offers IP addresses to the devices connected to the router). For most
+routers, you need to click on 'LAN' from the side bar and then go into the 'DCHP' section.
+• Within the DCHP page, all the devices connected to your router will be presented. Find the Tello
+EDUs and proceed to give them a static IP address and save it (this ensures that while they are connected
+to the router, they will always have the same IP address). The process should be straightforward as there
+are usually instructions at the bottom of the DCHP page.
+• If the Tello EDUs however are not immediately identified by the router, rebooting the router is likely
+to help. Remember if you can't see the Wi-Fi of the drone when it is powered on, then it is most likely
+already connected to the router, but it is just not displayed on the device page.
+• After this, go into the "swarm-dance.py" file from the "swarm" folder within the "tello-demos"
+directory and, onto line 14, input the static IP addresses that you have given your Tellos, based
+on the instructions displayed in the comments.
+
+
+DISCONNECT DRONE FROM ROUTER
+• In order to disconnect a drone from the router, press the power button on the side of the Tello and
+hold it for more than 5 seconds. If successful, the drone will start emitting its own Wi-Fi network.
+• Afterwards, the drone can be run individually or the process of connecting it to the router can be
+repeated.

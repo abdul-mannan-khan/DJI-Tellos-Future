@@ -1,0 +1,30 @@
+DEMO EXPLANATION
+• This demonstration is straightforward as it encompasses an object identifier which can
+distinguish between 79 classes of common objects (ranging from animals to household objects).
+• The video footage from the drone's camera however is used to identify these classes.
+• For this demonstration, the Tello will not be flying, hence it can be moved around and used
+for outdoor or limited space events.
+
+
+TO DO BEFORE
+• Place a new fully charged battery inside the designated Tello and press the power button
+fixed on the side once.
+• The person running the code should then start the ’tello-demos’ directory in PyCharm and
+open the ’object-detection.py’ file within the ’object-detection’ folder.
+• The person running the code should then connect to the Wi-Fi named ’TELLO-F0B001’.
+
+
+TO DO WHILE
+• Once everything is in place, click within the aforementioned python script once and then
+press the green triangle at the right side of the top bar to run the code. Before running the
+code, ensure that the drop-down menu placed to the left of the green triangle has the value
+of ’Current File’.
+• Once the code started, the drones camera footage will be fed back to your computer. Within the
+footage, the code is able to identify 79 common objects which appear highlighted in the video.
+• To stop the script, click on the red rectangle at the right side of the top bar once.
+
+
+TO DO AFTER
+• Once the script stopped running, approach the Tello and press the power button on its edge
+once to power it off.
+• Remove the battery and let it cool down before recharging it.
