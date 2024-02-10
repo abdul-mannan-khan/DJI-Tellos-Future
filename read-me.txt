@@ -1,0 +1,93 @@
+OVERVIEW
+
+This project contains 4 individual activities that feature Tello EDUs - a face tracking simulation where
+the drone follows the closest human face and can respond to gestures, an object detection script that enables
+the drone to identify 79 common objects, a package delivery simulation where the tello performs a specific
+trajectory based on the first item that it identifies out of 3 classes and a swarm choreography where 4 drones
+are used to perform a synchronized sequence.
+
+This file contains guidelines on setting up the environment, the downloads necessary, common errors met when
+using the script and advice on how to run each python script. Furthermore, in each folder, there is an additional
+read-me file which goes into more detail on what each activity does, how to set it up, common errors that occur
+when running and safety concerns along with advice on troubleshooting these issues.
+
+Besides the "swarm" folder, each activity uses a single Tello which I commonly refer to as "the marked Tello".
+This is due to the fact that swarming requires a router and the Tellos which are going to be used for the swarm
+event have to be thus set in access point mode, which requires additional preparation. The marked Tello is hence
+the drone that is used for every other activity and its box is separated from the other Tellos. If the order is
+lost, alternatively you can turn each Tello on and see which one emits a Wi-Fi signal (a Tello in access point
+does not provide a Wi-Fi network). Check the "connecting-swarm-to-router" file for further details on how to 
+connect and disconnect Tellos from the router.
+
+If you encounter any difficulties, please send an email at wr20505@bristol.ac.uk for additional
+guidance and explanations.
+
+SETTING UP VIRTUAL ENVIRONMENT
+
+Download Python 3.7 and the community version of PyCharm. Open the directory 'tello-demos' as a PyCharm
+project. Go to settings (top right corner) and then into "Python Interpreter" and then select "Add
+Interpreter" and add Python 3.7 and set it as the default interpreter for the virtual environment.
+
+Go into the terminal (on the left bar, click on the third icon from the button) and install the libraries
+and versions displayed below (pip install "library-name"=="version").
+e.g.  C:\Users\PycharmProjects\tello-demos>  pip install cvzone==1.5.6
+
+cvzone : 1.5.6
+djitellopy : 2.5.0
+mediapipe : 0.9.0.1
+numpy : 1.21.6
+opencv-contrib-python : 4.5.1.48
+
+After installing everything, you will need to uninstall opencv-python (this library comes
+with cvzone) by typing 'pip uninstall opencv-python' in the terminal. This library clashes
+with the opencv-contrib-python one and can result in errors. You might need to restart after.
+
+
+COMMON ERRORS
+
+1. Tello Disconnected From The Router
+• If the swarming script is run but not all drones take off, it likely means that the drones that
+did not take off have been disconnected from the router (you can check this by looking at whether
+a new Wi-Fi network with SSID starting with "TELLO" has appeared when the drone is turned on).
+• To fix this, connect to the Wi-Fi of the disconnected drones (now that they are not connected
+to the router, they will provide their own Wi-Fi network with a SSID starting with ’TELLO’).
+• The person running the code should then start the ’tello-demos’ directory in PyCharm and
+open the ’ap-config.py’ file within the ’swarming’ folder.
+• Follow the instructions presented in the commented lines (you need to input the SSID and
+password of the router) and then run the code by pressing once on the script and then pressing
+the green triangle on the right side of the top bar.
+• If a message saying the ’drone will reboot’ appears in the bottom window, then the Tello
+successfully connected to the router and the swarming scripts can be run.
+
+2. Python Scripts Are Not Working
+• If any of the 3 activities featuring the scripts are not working, it is likely to be caused by
+the antivirus and the firewall of the computer which are preventing two-way communication
+between the drone and your PC.
+• Temporarily disable both the antivirus and the firewall to ensure stable communication be-
+tween the Tello and the computer.
+
+3. Drone Is Executing Random Movements
+• If the drone seems to be executing random movements (especially in yaw), then it is likely
+the vision positioning system of the drone is malfunctioning.
+• While this may correspond to communication failure, it is most likely caused by sub-optimal light-
+ing conditions. Ensure the Tello is performing in an environment which is neither too dark
+nor too light and that there are not any reflective surfaces below the drone (such as water).
+
+4. Drone Is Not Executing Commands Or Camera Feed Freezes
+• If the drone is given commands and it does not respond to them or there is significant delay,
+best approach is to stop the code and manually reboot the drone by turning it off and on again
+using the button on the side.
+• This is an inherent communication error that comes with the task complexity. If using the
+'face-tracking-with-gestures.py', I recommend switching to the 'face-tracking.py' file which
+does not have gesture control incorporated. This lowers the complexity and might improve the
+connectivity between drone and PC.
+
+
+RUNNING THE PYTHON SCRIPTS
+• The SDK commands are sent from the python scripts to the drone using the djitellopy API. At
+the window found at the bottom of the PyCharm app, while running a script, you can visualize the
+commands that are sent to the Tello (they are written in red) and the response of the Tello, along
+with other useful strings (such as giving you the battery of the drone and the progression of
+ the mission).
+
+
